@@ -37,6 +37,25 @@ console.log("HOLA HEADER");
 
 <style>
 
+    header {
+        animation: headerLeave linear forwards;
+        animation-timeline: view();
+        animation-range-start: exit;
+    }
+    @keyframes headerLeave {
+        0% {
+            scale: 1;
+            opacity: 1;
+        }
+        80% {
+            opacity: 0;
+        }
+        100% {
+            transform: scale(3);
+            opacity: 0;
+        }
+
+    }
     /* font-light text-gray-500 sm:text-xl dark:text-gray-400 w-full bg-clip-text bg-red-600 */
 	.letterChange {
         font-weight: bold;
