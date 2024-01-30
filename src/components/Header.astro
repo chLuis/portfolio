@@ -65,7 +65,8 @@ console.log("HOLA HEADER");
         width: fit-content;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: text-change linear 2s infinite;
+        -webkit-animation: text-change linear 2s infinite;
+        text-rendering: optimizeLegibility;
     }
     @keyframes text-change {
         0% {
@@ -78,6 +79,14 @@ console.log("HOLA HEADER");
             background-position: 0% 200%;
         }
     }
+    @-webkit-keyframes text-lights {
+    0%{
+        background-position: 200% 0%;
+    }
+    100%{
+        background-position: 0 200%;
+    }
+}
 
     .cursorAnimation {
         animation: cursor-animated 1s linear 0.5s infinite;
