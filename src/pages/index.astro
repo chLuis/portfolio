@@ -44,9 +44,13 @@ import Translate from '../components/Translate.astro';
 		animation-timeline: view();
 		animation-range-start: entry;
 		animation-range-end: contain;
+		-webkit-animation-timeline: view();
+		-webkit-animation-range-start: entry;
+		-webkit-animation-range-end: contain;
 
 	}
 
+	
 	
 	@keyframes reveal {
 		0% {
@@ -65,5 +69,21 @@ import Translate from '../components/Translate.astro';
 			scale: 1;
 		}
 	}
-	
+	@-webkit-keyframes reveal {
+		0% {
+			scale: 2;
+			opacity: 0;
+			transform: translateY(50%);
+		}
+		50% {
+			scale: 1;
+			transform: translateY(0%);
+		}
+		90% {
+		}
+		100% {
+			opacity: 1;
+			scale: 1;
+		}
+	}
 </style>
