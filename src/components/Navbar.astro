@@ -1,6 +1,24 @@
 ---
-console.log("Navbar");
+
 ---
+<script>
+    window.addEventListener('scroll', function() {
+    let fromTop = window.scrollY;
+
+    document.querySelectorAll('.navbarContainer a').forEach(link => {
+        let section = document.querySelector((link as HTMLAnchorElement).hash);
+
+        if (
+            (section as HTMLElement).offsetTop <= fromTop &&
+            (section as HTMLElement).offsetTop + (section as HTMLElement).offsetHeight > fromTop
+        ) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+});
+</script>
 
 <navbar id="home">
     <ul class="navbarContainer fixed top-0 left-0 right-0 flex text-lg font-bold gap-3 pb-2 justify-center items-center bg-stone-900 z-50 bg-opacity-90 hover:bg-opacity-100 duration-200">
@@ -24,4 +42,7 @@ console.log("Navbar");
         height: 60px;
         clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
     }
+    .active {
+    color: #ff6347; /* Cambia esto al color que prefieras */
+}
 </style>
