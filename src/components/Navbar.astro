@@ -9,8 +9,8 @@
         let section = document.querySelector((link as HTMLAnchorElement).hash);
 
         if (
-            (section as HTMLElement).offsetTop <= fromTop &&
-            (section as HTMLElement).offsetTop + (section as HTMLElement).offsetHeight > fromTop
+            (section as HTMLElement).offsetTop - 20 <= fromTop &&
+            (section as HTMLElement).offsetTop - 20 + (section as HTMLElement).offsetHeight > fromTop
         ) {
             link.classList.add('active');
         } else {
@@ -30,10 +30,10 @@
                 </svg>
             </li>
         </a>
-        <a href="#experience"><li class="text-xs hover:border hover:border-t-0 hover:border-x-0 hover:text-orange-300 duration-200">Experiencia</li></a>
-        <a href="#proyects"><li class="text-xs hover:border hover:border-t-0 hover:border-x-0 hover:text-orange-300 duration-200">Proyectos</li></a>
-        <a href="#about"><li class="text-xs hover:border hover:border-t-0 hover:border-x-0 hover:text-orange-300 duration-200">Acerca de mi</li></a>
-        <a href="#contact"><li class="text-xs hover:border hover:border-t-0 hover:border-x-0 hover:text-orange-300 duration-200">Contacto</li></a>
+        <a href="#experience"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Experiencia</li></a>
+        <a href="#proyects"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Proyectos</li></a>
+        <a href="#about"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Acerca de mi</li></a>
+        <a href="#contact"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Contacto</li></a>
     </ul>
 </navbar>
 
