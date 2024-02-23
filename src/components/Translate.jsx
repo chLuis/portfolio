@@ -49,6 +49,7 @@ export default function TranslateIsle() {
                     <path d="M12.5 3a17 17 0 0 1 0 18" />
                 </svg>
                 {pathnameString === "en" && <span class="text-sm select-none">ES</span>}
+                {pathnameString === "" && <span class="text-sm select-none">ES</span>}
                 {pathnameString === "es" && <span class="text-sm select-none">EN</span>}
             </div>
         </>
