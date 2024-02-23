@@ -1,29 +1,34 @@
 ---
-import Layout from '../layouts/Layout.astro';
-// import Header from '../components/Header.astro'
-// import Navbar from '../components/Navbar.astro';
-// import Experience from '../components/Experience.astro'
-// import Proyects from '../components/Proyects.astro'
-// import AboutMe from '../components/AboutMe.astro';
-// import Footer from '../components/Footer.astro'
-// import Contact from '../components/Contact.astro';
-//import TranslateIsle from '../components/Translate'
+import Layout from '../layouts/en/Layout.astro';
+import Header from '../components/en/Header.astro'
+import Navbar from '../components/en/Navbar.astro';
+import Experience from '../components/en/Experience.astro'
+import Proyects from '../components/en/Proyects.astro'
+import AboutMe from '../components/en/AboutMe.astro';
+import Footer from '../components/en/Footer.astro'
+import Contact from '../components/en/Contact.astro';
+import TranslateIsle from '../components/Translate'
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+// defaultLocale is "en"
+const aboutURL=getRelativeLocaleUrl("en", "about");
+
 ---
-<meta http-equiv="refresh" content="0;url=/en/" />
-<Layout title="chLuis Portolio">
+
+<Layout title="chLuis Portfolio">
 	<main>
-		<!-- <Navbar />
+		<Navbar />
 		<Header />
 		<Experience />
 		<Proyects />
 		<AboutMe />
-		<Contact/> -->
-		<!-- <TranslateIsle  client:visible /> -->
+		<Contact/>
+		<TranslateIsle client:only="preact" />
 	</main>
-	<!-- <Footer /> -->
+	<Footer />
 </Layout>
 
-<!-- <style is:global>
+<style is:global>
 	main {
 		font-family: system-ui, sans-serif;
 		margin: auto;
@@ -107,4 +112,4 @@ import Layout from '../layouts/Layout.astro';
 			scale: 1;
 		}
 	}
-</style> -->
+</style>
