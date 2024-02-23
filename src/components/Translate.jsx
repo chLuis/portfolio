@@ -15,7 +15,7 @@ export default function TranslateIsle() {
     //console.log(pathnameString)
 
     function handlePage() {
-        if (pathnameString === "en") {
+        if (pathnameString === "en" || pathnameString === "") {
             window.location.href = "/es"
         } else {
             window.location.href = "/en"
