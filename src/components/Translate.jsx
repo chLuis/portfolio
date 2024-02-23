@@ -1,13 +1,32 @@
-import { useState } from "preact/hooks";
+import { useState, useEffect } from "preact/hooks";
 
 export default function TranslateIsle() {
-    const [language, setLanguage] = useState(true);
-    
+    const [pathname, setPathname] = useState(window.location.pathname);
+
+    useEffect(() => {
+        const handleLocationChange = () => setPathname(window.location.pathname);
+        window.addEventListener('popstate', handleLocationChange);
+        return () => {
+            window.removeEventListener('popstate', handleLocationChange);
+        };
+    }, []);
+
+    const pathnameString = pathname.replaceAll("/", "")
+    //console.log(pathnameString)
+
+    function handlePage() {
+        if (pathnameString === "en") {
+            window.location.href = "/es"
+        } else {
+            window.location.href = "/en"
+        }
+    }
+
     return (
         <>
             <div
                 id="button-language"
-                onClick={() => setLanguage(!language)}
+                onClick={() => handlePage()}
                 class="absolute w-16 top-16 right-4 flex gap-2 items-center justify-between border rounded-full px-2 py-1 cursor-pointer hover:border-orange-300 hover:text-orange-300"
             >
                 <svg
@@ -29,8 +48,8 @@ export default function TranslateIsle() {
                     <path d="M11.5 3a17 17 0 0 0 0 18" />
                     <path d="M12.5 3a17 17 0 0 1 0 18" />
                 </svg>
-                {language && <span class="text-sm select-none">ES</span>}
-                {!language && <span class="text-sm select-none">EN</span>}
+                {pathnameString === "en" && <span class="text-sm select-none">ES</span>}
+                {pathnameString === "es" && <span class="text-sm select-none">EN</span>}
             </div>
         </>
     );
