@@ -51,8 +51,8 @@ const aboutURL=getRelativeLocaleUrl("es", "about");
 		animation-range-start: entry 200px;
 		animation-range-end: exit 500px;
 		-webkit-animation-timeline: view();
-		-webkit-animation-range-start: entry 500px;
-		-webkit-animation-range-end: exit -200px;
+		-webkit-animation-range-start: entry 200px;
+		-webkit-animation-range-end: exit 500px;
 
 	}
 
@@ -97,19 +97,39 @@ const aboutURL=getRelativeLocaleUrl("es", "about");
 	}
 	@-webkit-keyframes reveal {
 		0% {
-			scale: 2;
+			scale: 1;
 			opacity: 0;
-			transform: translateY(50%);
+			transform: translateY(0%);
 		}
-		50% {
+		1% {
+			transform: translateY(20%);
+			opacity: 0;
+			scale: 1;
+		}
+		2% {
+			scale: 2;
+		}
+		20% {
+			opacity: 1;
 			scale: 1;
 			transform: translateY(0%);
 		}
 		90% {
+			opacity: 1;
+			transform: translateY(0%);
+			scale: 1;
+		}
+		98% {
+			opacity: 1;
+		}
+		99% {
+			opacity: 0;
+			transform: translateY(0%);
+			scale: 2;
 		}
 		100% {
-			opacity: 1;
 			scale: 1;
+			opacity: 0;
 		}
 	}
 </style>
