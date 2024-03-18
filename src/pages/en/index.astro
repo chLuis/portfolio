@@ -2,8 +2,9 @@
 import Layout from '../../layouts/en/Layout.astro';
 import Header from '../../components/en/Header.astro'
 import Navbar from '../../components/en/Navbar.astro';
-import Experience from '../../components/en/Experience.astro'
+import Education from '../../components/en/Education.astro'
 import Proyects from '../../components/en/Proyects.astro'
+import Experience from '../../components/en/Experience.astro';
 import AboutMe from '../../components/en/AboutMe.astro';
 import Footer from '../../components/en/Footer.astro'
 import Contact from '../../components/en/Contact.astro';
@@ -19,6 +20,7 @@ const aboutURL=getRelativeLocaleUrl("en", "about");
 	<main>
 		<Navbar />
 		<Header />
+		<Education />
 		<Experience />
 		<Proyects />
 		<AboutMe />
@@ -29,6 +31,10 @@ const aboutURL=getRelativeLocaleUrl("en", "about");
 </Layout>
 
 <style is:global>
+
+	*{
+		scrollbar-width: thin;
+	}
 	main {
 		font-family: system-ui, sans-serif;
 		margin: auto;
