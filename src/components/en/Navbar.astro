@@ -17,15 +17,57 @@
             link.classList.remove('active');
         }
     });
+
+    document.querySelectorAll('.navMenuMovil a').forEach(link => {
+        let section = document.querySelector((link as HTMLAnchorElement).hash);
+
+        if (
+            (section as HTMLElement).offsetTop - 20 <= fromTop &&
+            (section as HTMLElement).offsetTop - 20 + (section as HTMLElement).offsetHeight > fromTop
+        ) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 });
 
+const button = document.querySelector('#menu-button') as Element;
+const buttonClose = document.querySelector('#menuClose-button') as Element;
+const menuOpen = document.querySelector('#menuOpen') as Element;
+const nameMovil = document.querySelector('#nameMovil') as Element;
+//const navMovil = document.querySelector('#navMovil') as Element;
 
+    button.addEventListener("click", () => {
+        menuOpen.classList.toggle("hidden")
+        button.classList.toggle("hidden")
+        buttonClose.classList.toggle("hidden")
+        nameMovil.classList.toggle("hidden")
+    })
+    
+    buttonClose.addEventListener("click", () => {
+        menuOpen.classList.toggle("hidden")
+        button.classList.toggle("hidden")
+        buttonClose.classList.toggle("hidden")
+        nameMovil.classList.toggle("hidden")
+    })
+
+    menuOpen.addEventListener("click", () => {
+        menuOpen.classList.toggle("hidden")
+        nameMovil.classList.toggle("hidden")
+        button.classList.toggle("hidden")
+        buttonClose.classList.toggle("hidden")
+    })
+
+    // navMovil.addEventListener("click", (e) => {
+    //     e.stopPropagation()
+    // })
 
 </script>
 
-<navbar class="fixed z-50 top-0 left-0 right-0 ">
-    <ul class="navbarContainer flex text-lg font-bold gap-3 pb-2 justify-center items-center bg-stone-900 bg-opacity-90 hover:bg-opacity-100 duration-200 select-none">
-        <a href="#home">
+<navbar>
+    <ul class="navbarContainer fixed top-0 left-0 right-0 flex text-lg font-bold gap-3 pb-2 justify-center items-center bg-stone-900 z-50 xs:bg-opacity-90 hover:bg-opacity-100 duration-200 select-none">
+        <a href="#home" class="hidden xs:block">
             <li>
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="20" height="20" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                     <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
@@ -33,12 +75,33 @@
                 </svg>
             </li>
         </a>
-        <a href="#education"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Education</li></a>
-        <a href="#experience"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Experience</li></a>
-        <a href="#proyects"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Proyects</li></a>
-        <a href="#about"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">About me</li></a>
-        <a href="#contact"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Contact</li></a>
+        <a href="#education" class="hidden xs:block"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Education</li></a>
+        <a href="#experience" class="hidden xs:block"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Experience</li></a>
+        <a href="#proyects" class="hidden xs:block"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Projects</li></a>
+        <a href="#about" class="hidden xs:block"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">About me</li></a>
+        <a href="#contact" class="hidden xs:block"><li class="text-xs border border-transparent hover:border-b-orange-300 hover:text-orange-300 duration-200">Contact</li></a>
+        <a id="nameMovil" href="#home" class="fixed top-2 left-2 xs:hidden border border-transparent hover:border-b-orange-300 hover:text-orange-300 pe-8 hover:pe-0 duration-200 animate-fade-in">chLuis</a>
+        <button id="menu-button" class="fixed top-1 right-2 xs:hidden animate-fade-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="38" viewBox="0 -960 960 960" width="38"><path d="M140.001-254.616v-50.255h679.998v50.255H140.001Zm0-200.257v-50.254h679.998v50.254H140.001Zm0-200.256v-50.255h679.998v50.255H140.001Z"/></svg>
+        </button>
+        <button id="menuClose-button" class="fixed top-1 right-2 hidden animate-fade-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="38" viewBox="0 -960 960 960" width="38"><path d="m252.615-217.232-35.383-35.383L444.616-480 217.232-707.385l35.383-35.383L480-515.384l227.385-227.384 35.383 35.383L515.384-480l227.384 227.385-35.383 35.383L480-444.616 252.615-217.232Z"/></svg>
+        </button>
     </ul>
+    <div id="menuOpen" class="fixed top-10 right-0 bg-stone-900 bg-opacity-20 hidden w-full h-screen z-50 flex-col items-end animate-fade-in">
+        <div id="navMovil" class="fixed flex justify-end right-0 w-4/5 h-screen text-end pe-4 pt-6 bg-gradient-to-l from-stone-900 via-50% via-stone-900 to-transparent">
+            <ul class="navMenuMovil flex flex-col items-end gap-4 text-xl font-bold pb-2 z-50 bg-opacity-90 hover:bg-opacity-100 duration-200 select-none">
+            <a href="#home" class="font-extrabold text-2xl border border-transparent hover:border-b-orange-300 hover:text-orange-300 ps-8 hover:ps-0 duration-200">
+                chLuis
+            </a>
+            <a href="#education" class=""><li class=" border border-transparent hover:border-b-orange-300 hover:text-orange-300 ps-8 hover:ps-0 duration-200">Education</li></a>
+            <a href="#experience" class=""><li class=" border border-transparent hover:border-b-orange-300 hover:text-orange-300 ps-8 hover:ps-0 duration-200">Experience</li></a>
+            <a href="#proyects" class=""><li class=" border border-transparent hover:border-b-orange-300 hover:text-orange-300 ps-8 hover:ps-0 duration-200">Projects</li></a>
+            <a href="#about" class=""><li class=" border border-transparent hover:border-b-orange-300 hover:text-orange-300 ps-8 hover:ps-0 duration-200">About me</li></a>
+            <a href="#contact" class=""><li class=" border border-transparent hover:border-b-orange-300 hover:text-orange-300 ps-8 hover:ps-0 duration-200">Contact</li></a>
+        </ul>
+        </div>
+    </div>
 </navbar>
 
 <style>
@@ -47,8 +110,6 @@
         clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
     }
     .active {
-    color: #ff6347; /* Cambia esto al color que prefieras */;
-    }
-
-
+    color: #ff6347; /* Cambia esto al color que prefieras */
+}
 </style>
