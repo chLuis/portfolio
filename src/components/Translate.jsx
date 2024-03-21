@@ -27,13 +27,13 @@ export default function TranslateIsle() {
             <div
                 id="button-language"
                 onClick={() => handlePage()}
-                class="absolute w-16 top-16 right-4 flex gap-2 items-center justify-between border rounded-full px-2 py-1 cursor-pointer hover:border-orange-300 hover:text-orange-300"
+                class="fixed w-14 top-12 bg-black bg-opacity-70 left-4 flex gap-2 items-center justify-between border rounded-full px-2 py-1 cursor-pointer hover:border-orange-300 hover:text-orange-300"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="icon icon-tabler icon-tabler-world"
-                    width="18"
-                    height="18"
+                    width="16"
+                    height="16"
                     viewBox="0 0 24 24"
                     stroke-width="2"
                     stroke="currentColor"
